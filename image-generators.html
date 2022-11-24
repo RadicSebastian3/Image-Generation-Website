@@ -6,25 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image-Generators</title>
     <link rel="stylesheet" type="text/css" href="stylesheet.css">  >
+    <link rel="icon" type="png" href="favicon.png">
 </head>
 <body>
     <section id="s0"></section>
-
-    <div id="navbar">
-        <a href="index.html">Was ist Image Generation?</a>
-        <a href="how-it-works.html">Wie Image Generation funktioniert</a>
+        
+    <div id="navbar">   
+        <a href="index.html">What is image generation?</a>
+        <a href="how-it-works.html">How does image generation work?</a>
     </div>
     <div id="space"></div>
-
-    <div id="google_translate_element"><script>
-        function googleTranslateElementInit() {
-          new google.translate.TranslateElement({
-            pageLanguage: 'de'
-          }, 'google_translate_element');
-        }
-        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    </div>
-
 
     <div id="sections">
         <a href="#s1">Stable Diffusion</a>
@@ -32,29 +23,37 @@
         <a href="#s3">Dall-E 2</a>
         <a href="#s4">Midjourney</a>
     </div>
+
+    <div id="google_translate_element"></div><script>
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({
+            pageLanguage: 'en'
+          }, 'google_translate_element');
+        }
+        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     
-    <h1>Die verschiedenen Image Generators</h1>
+    <h1>The different image generators</h1>
 
     <section id="s1">
         <h2>Stable Diffusion</h2>
-        <p>Stable Diffusion ist die Inspiration hinter diesem Artikel und ein Tool, mit dem ich persönlich in letzter Zeit viel herumgespielt habe. 
-            Es läuft lokal auf Ihrem Computer (Sie kämpfen also nicht mit anderen Benutzern eines Online-Tools um Ressourcen) und ist eines der leistungsstärksten, die Sie derzeit verwenden können.
-            Sie können damit nicht nur eine Menge Parameter feinabstimmen, sondern auch den gesamten Generierungsprozess steuern.</p>
-        <p>Stable Diffusion leidet unter all den gleichen KI-Fallstricken, mit der zusätzlichen „Gefahr“ der Zugänglichkeit. 
-            Jeder mit einem ausreichend leistungsfähigen Computer kann ihn einrichten und schnell zum Laufen bringen.
-            Für schlechtere Hardware wird die Zugänglichkeit jedoch schwierig.</p>
-        <p>Das Beste an Stable Diffusion ist, dass es vollständig Open Source ist. Sie können die Unterstützung dafür heute in jedes Ihrer Projekte implementieren, wenn Sie möchten, und es gibt bereits Plugins wie Alpaca, die Sie zur Integration in Photoshop verwenden können.
-            Es ist noch nicht perfekt, aber es ist extrem früh in der Entwicklung dieser Programme. 
-            Sie können Dream Studio auch verwenden, wenn Sie möchten, obwohl dies Geld kostet und im Vergleich zur lokalen Einrichtung etwas restriktiv ist.</p>
-        <p>Wenn Sie Stable Diffusion lokal einrichten, gibt es darüber hinaus Forks wie die Stable Diffusion WebUI von AUTOMATIC1111, die mit einem integrierten Upscale-Tool ausgestattet sind, das die Auflösung bis zu viermal erhöhen kann. 
-            Sie können zwar Bilder mit höheren Auflösungen generieren, es ist jedoch oft viel schneller, ein Bild mit einer niedrigeren Auflösung zu generieren und es dann hochzuskalieren.
-            Alle Bilder unten sind von kleineren Auflösungen hochskaliert.</p>
-        <blockquote>Stable Diffusion wurde auf einem Cluster von 4.000 Nvidia A100-GPUs trainiert, die in AWS ausgeführt wurden, und fand über einen Monat statt. Es kann Bilder von Prominenten generieren und verfügt außerdem über einen integrierten NSFW-Filter. 
-            Sie können diesen NSFW-Filter bei lokalen Installationen deaktivieren, da er tatsächlich Ressourcen spart, indem er die VRAM-Nutzung verringert. Was "Diffusion" bedeutet, ist der Prozess, mit reinem Rauschen zu beginnen und sich im Laufe der Zeit zu verfeinern. 
-            Dadurch wird das Bild im Laufe der Zeit schrittweise näher an die Textaufforderung herangeführt, bis kein Rauschen mehr vorhanden ist. Auf die gleiche Weise funktioniert Dall-E 2.</blockquote>
-        <p>Ein weiteres lustiges Feature von Stable Diffusion ist "img2img". 
-            In diesem geben Sie ihm ein Bild als Eingabeaufforderung, beschreiben, was das Bild sein soll, und lassen sich dann eine richtige Zeichnung geben.</p>
-        
+        <p>Stable Diffusion is the inspiration behind this article and a tool I've personally been playing around with a lot lately.
+            It runs locally on your computer (so you don't compete for resources with other users of an online tool) and is one of the most powerful you can currently use.
+            Not only can you use it to fine-tune a lot of parameters, but you can also control the entire generation process.</p>
+        <p>Stable Diffusion suffers from all the same AI pitfalls, with the added "danger" of accessibility.
+            Anyone with a powerful enough computer can set it up and get it up and running quickly.
+            However, accessibility becomes difficult for inferior hardware.</p>
+        <p>The best thing about Stable Diffusion is that it's completely open source. You can implement support for it in any of your projects today if you want, and there are already plugins like Alpaca that you can use to integrate with Photoshop.
+            It's not perfect yet, but it's extremely early in the development of these programs.
+            You can also use Dream Studio if you want, although it costs money and is a bit restrictive compared to setting up locally.</p>
+            <p>In addition, if you set up Stable Diffusion locally, there are forks like AUTOMATIC1111's Stable Diffusion WebUI that come with a built-in upscale tool that can increase resolution up to four times.
+                While you can generate higher resolution images, it is often much faster to generate a lower resolution image and then upscale it.
+                All images below are upscaled from lower resolutions.</p>
+            <blockquote>Stable Diffusion was trained on a cluster of 4,000 Nvidia A100 GPUs running on AWS and took place over a month. It can generate celebrity images and also has a built-in NSFW filter.
+                You can disable this NSFW filter on local installs as it actually saves resources by reducing VRAM usage. What "diffusion" means is the process of starting with pure noise and refining over time.
+                This will gradually bring the image closer to the text prompt over time until there is no more noise. Dall-E 2 works in the same way.</blockquote>
+            <p>Another fun feature of Stable Diffusion is "img2img".
+                In this, you give him an image as a prompt, describe what the image is supposed to be, and then ask for an actual drawing.</p>
+
         <a target="_blank" class="image" href="https://cdn.pixabay.com/photo/2022/11/02/10/13/landscape-7564520_1280.jpg">
             <img src="https://cdn.pixabay.com/photo/2022/11/02/10/13/landscape-7564520_1280.jpg" 
         alt="Stable Diffusion Example"></a>
@@ -63,16 +62,16 @@
 
     <section id="s2">
         <h2>Craiyon</h2>
-        <p>Craiyon war früher als DALL·E Mini bekannt, obwohl es trotz des Namens nichts mit Dall-E 2 zu tun hat. Es wurde entwickelt, um die Ergebnisse des DALL·E-Text-zu-Bild-Modells von OpenAI zu reproduzieren.
-            Craiyon steht der Öffentlichkeit zur Verfügung und kann verwendet werden, um Bilder zu erzeugen, die überraschend anständig sind, obwohl die Bilder weder so genau noch so hochwertig sind. 
-            Die maximale Bildauflösung liegt bei 256 x 256, und es gibt auch keine Upscaling-Tools.</p>
-        <p>Craiyon kann völlig kostenlos verwendet werden und ist über seine Website zugänglich. 
-            Sie können jedes Bild über jede Eingabeaufforderung generieren, und der einzige Haken ist, dass die Bilder von geringerer Qualität sind und Sie etwa zwei Minuten auf jeden generierten Stapel von Bildern warten müssen. 
-            Craiyon begann als Open-Source-Modell mit dem Ziel, die Ergebnisse des ursprünglichen DALL·E-Modells zu reproduzieren. 
-            Das jetzt verwendete Modell ist als DALL·E Mega bekannt und enthält mehrere Verbesserungen.</p>
-        <p>Craiyon wird im Gegensatz zu den anderen Optionen hier durch Werbeeinnahmen unterstützt. 
-            Infolgedessen sehen Sie bei Ihrem Besuch bezahlte Sponsoring- und andere Anzeigen auf ihrer Website. 
-            Auch für Android-Smartphones gibt es eine App. Es ist nicht das raffinierteste, aber es macht Spaß, ist einfach zu bedienen und zugänglich.</p>
+        <p>Craiyon was formerly known as the DALL E Mini, although despite the name it is unrelated to the Dall-E 2. It is designed to reproduce the results of OpenAI's DALL·E text-to-image model.
+            Craiyon is available to the public and can be used to generate images that are surprisingly decent, although the images are neither as accurate nor of the highest quality.
+            The maximum image resolution is 256 x 256, and there are no upscaling tools either.</p>
+        <p>Craiyon is completely free to use and accessible through its website.
+            You can generate any image from any command prompt and the only catch is that the images are of lower quality and you have to wait about two minutes for each batch of images generated.
+            Craiyon started out as an open-source model with the goal of reproducing the results of the original DALL·E model.
+            The model now in use is known as the DALL·E Mega and includes several improvements.</p>
+        <p>In contrast to the other options here, Craiyon is supported by advertising revenue.
+            As a result, you will see paid sponsorship and other advertisements on their site during your visit.
+            There is also an app for Android smartphones. It's not the most sophisticated, but it's fun, easy to use, and accessible.</p>
 
         <a target="_blank" class="image" href="https://i.ibb.co/kJDzHvp/image.png">
             <img src="https://i.ibb.co/kJDzHvp/image.png" 
@@ -82,43 +81,42 @@
 
     <section id="s3">
         <h2>Dall-E 2</h2>
-        <p>Dall-E 2 ist ein Produkt des OpenAI-Forschungslabors und der bekannteste KI-Bildgenerator, an den die Leute denken.
-            Es ist ein geschlossenes Tool mit eingeschränktem Zugriff, aber für diejenigen, die darauf zugreifen können, sind einige der Ergebnisse, die es erzielen kann, unglaublich. 
-            Es wurde ursprünglich aufgrund von Bedenken hinsichtlich der Ethik und Sicherheit eines solchen Tools geschlossen, obwohl es im Laufe der Zeit schrittweise erweitert wurde.</p>
-        <p>Einer der größten Vorteile von Dall-E 2 ist die Fähigkeit, fotorealistische Bilder zu erstellen, die auf den ersten Blick nicht von echten Fotos zu unterscheiden sind. 
-            Es kann Gemälde, Bilder, die aussehen, als wären sie mit echten Kameras aufgenommen worden, und vollständig erfundene Szenarien erzeugen. 
-            Als es zum ersten Mal angekündigt wurde, stellte es einen großen Sprung in den Fähigkeiten der KI dar, sowohl in seiner Fähigkeit, Bilder zu erstellen, als auch in seiner Verarbeitung natürlicher Sprache, bekannt als NLP. 
-            Dies ist der Implementierung von GPT-3 zu verdanken, das eines der fortschrittlichsten Sprachmodelle auf dem Markt ist und ebenfalls von OpenAI verfasst wurde.</p>
-        <p>Genau wie bei Stable Diffusion hat auch Dall-E 2 seine eigene Fähigkeit, vorhandene Bilder aufzunehmen und sie basierend auf einer Aufforderung zu ändern. 
-            Sie können Fotos damit bearbeiten, indem Sie es bitten, etwas zu einem Bild hinzuzufügen, oder es sogar bitten, etwas zu entfernen oder die Beleuchtung zu ändern. 
-            Während es nur quadratische Bilder erstellt, hat OpenAI letzten Monat Outpainting angekündigt , das Ihre Bilder breiter erweitern kann, wobei der Kontext dessen berücksichtigt wird, was bereits in Ihrem quadratischen Bild verfügbar ist.</p>
-        <p>Dall-E 2 steht allen zum Ausprobieren zur Verfügung.</p>
+        <p>Dall-E 2 is a product of OpenAI research lab and is the most famous AI image generator that people think of.
+            It's a closed tool with limited access, but for those who can access it, some of the results it can produce are incredible.
+            It was originally closed due to concerns about the ethics and safety of such a tool, although it has been gradually expanded over time.</p>
+        <p>One of the greatest advantages of the Dall-E 2 is its ability to create photorealistic images that are indistinguishable from real photos at first glance.
+            It can create paintings, images that look like they were taken with real cameras, and completely made-up scenarios.
+            When it was first announced, it represented a major leap in the capabilities of AI, both in its ability to create images and in its natural language processing, known as NLP.
+            This is thanks to the implementation of GPT-3, which is one of the most advanced language models on the market and also authored by OpenAI.</p>
+        <p>Just like Stable Diffusion, Dall-E 2 has its own ability to take existing images and change them based on a prompt.
+            You can use it to edit photos by asking it to add something to an image, or even asking it to remove something or change the lighting.
+            While it only creates square images, last month OpenAI announced outpainting, which can extend your images more broadly while respecting the context of what's already available in your square image.</p>
+        <p>Dall-E 2 is available for everyone to try.</p>
 
-        <a target="_blank" class="image" href="https://www.trustedreviews.com/wp-content/uploads/sites/54/2022/10/Dall-E-2-image-exmaple-soup-912x912.jpg">
-            <img src="https://www.trustedreviews.com/wp-content/uploads/sites/54/2022/10/Dall-E-2-image-exmaple-soup-912x912.jpg"
-        alt="Dall-E Example"></a>
-
-        <p class="credit">Image Source: Trusted Reviews</p>
+    <a target="_blank" class="image" href="https://www.trustedreviews.com/wp-content/uploads/sites/54/2022/10/Dall-E-2-image-exmaple-soup-912x912.jpg">
+        <img src="https://www.trustedreviews.com/wp-content/uploads/sites/54/2022/10/Dall-E-2-image-exmaple-soup-912x912.jpg"
+    alt="Dall-E Example"></a>
+    <p class="credit">Image Source: Trusted Reviews</p>
     </section>
 
     <section id="s4">
         <h2>Midjourney</h2>
-        <p>Midjourney ist interessant, da es sich um eine öffentliche Plattform handelt, die Bilder generieren kann, obwohl Sie dies über einen Discord-Server tun. 
-            Nicht nur das, sondern nachdem Sie 25 Bilder generiert haben, müssen Sie den Dienst abonnieren, um weiterhin neue zu generieren.</p>
-        <p>Während Midjourney hier wahrscheinlich die am besten zugängliche Plattform ist (vorausgesetzt, Sie können von jedem Gerät mit einem Discord-Konto darauf zugreifen), kostet es Sie auch Geld. 
-            Dafür bekommt man aber Qualität. Ein Benutzer des Dienstes, Jason Allen, schuf ein Stück, das er "Théâtre D'opéra Spatial" nannte. 
-            Er nahm damit am Kunstwettbewerb der Colorado State Fair teil und gewann.</p>
-        <p>Im Gegensatz zu diesen anderen Projekten ist Midjourney ein proprietäres Programm für künstliche Intelligenz. 
-            Es gibt keinen Quellcode, den Sie einsehen können, und sein gesamter Zweck ist zu diesem Zeitpunkt auf die Verwendung innerhalb eines Discord-Servers beschränkt.</p>
-    
-            <a target="_blank" class="image" href="https://cdn.pixabay.com/photo/2022/09/13/05/30/midjourney-7450984_1280.jpg">
-                <img src="https://cdn.pixabay.com/photo/2022/09/13/05/30/midjourney-7450984_1280.jpg" 
-            alt="Midjourney Example"></a>
-            <p class="credit">Image Source: Pixabay</p>
+        <p>Midjourney is interesting because it's a public platform that can generate images, although you do it through a Discord server.
+            Not only that, but after you've generated 25 images, you'll need to subscribe to the service to keep generating new ones.</p>
+        <p>While Midjourney is probably the most accessible platform here (assuming you can access it from any device with a Discord account), it will also cost you money.
+            But you get quality for that. A user of the service, Jason Allen, created a play he called "Théâtre D'opéra Spatial".
+            He took part in the art competition at the Colorado State Fair and won.</p>
+        <p>Unlike these other projects, Midjourney is a proprietary artificial intelligence program.
+            There is no source code available for you to view and its entire purpose is limited to use within a Discord server at this time.</p>
+
+        <a target="_blank" class="image" href="https://cdn.pixabay.com/photo/2022/09/13/05/30/midjourney-7450984_1280.jpg">
+            <img src="https://cdn.pixabay.com/photo/2022/09/13/05/30/midjourney-7450984_1280.jpg" 
+        alt="Midjourney Example"></a>
+        <p class="credit">Image Source: Pixabay</p>
     </section>
             
     <div id="back-to-top">
-        <a href="#s0">Zurück zum Anfang</a>
+        <a href="#s0">Back to the beginning</a>
     </div>
 </body>
 </html>

@@ -21,6 +21,7 @@ A popular AI technique used for image generation is called GAN, or Generative Ad
 We're trying to build our own image generator with the pre made stable diffusion AI from hugging face. We are using pytorch to build and train the modell. In the end you should be able to write a text.
 ### Front-end
 The front-end includes an input field for the user to enter text and a "Submit" button. When the button is clicked, the input text is sent to the back-end server. Next to the input field there's a dice button to generate a random prompt, and a button to show a few examples. The image will get displayed under the prompt.
+![Website Layout](Website-Layout.png)
 ### Back-end
 The back-end server is a Flask app that loads the Stable Diffusion model from a CKPT file. When it receives the input text from the front-end, it generates an image using the model. The image is then converted to base64 format and sent back to the front-end. The dice button will try to make an english sentence out of random nouns and verbs, and the example option will just give you the ability to get a prompt out of a pre-defined array. 
 

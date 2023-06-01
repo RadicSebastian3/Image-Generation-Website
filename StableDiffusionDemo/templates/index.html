@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Image Generator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.jpg') }}">
+</head>
+<body>
+  <main>
+    <h1>AI Image Generator</h1>
+    <form id="imageForm">
+      <label for="prompt">Enter a prompt:</label>
+      <input type="text" id="prompt" name="prompt" required>
+      <p id="error" style="display: none;">Unknown Error</p>
+      <button type="submit", href="#end">Generate Image</button>
+      <p id="feedback" style="display: none;">Generating image (~20 seconds)...</p>
+    </form>
+    <div id="imageContainer">
+      <img id="" src="" alt="" style="display: none;">
+    </div> 
+    <section id="end"></section>
+  </main>
+  <script>
+    const imageForm = document.getElementById('imageForm');
+    const imageContainer = document.getElementById('imageContainer');
+    const imageElement = document.querySelector('img');
+    const feedback = document.getElementById('feedback');
+    const errorFeedback = document.getElementById('error');
+    const promptInput = document.getElementById('prompt');
+    const generateButton = document.querySelector('button[type="submit"]');
+    
+    imageForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      imageElement.style.display = 'none'; // Hide the image
+      feedback.style.display = 'block'; // Show the feedback message
+      promptInput.disabled = true; // Disable the prompt input
+      generateButton.style.display = 'none'; // Hide the submit button
+      errorFeedback.style.display = 'none'; // Hide the feedback
+      
+      const prompt = promptInput.value;
+      const response = await fetch('/generate_image', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ prompt: prompt })
+      });
+
+      if (!response.ok)
+      {
+        errorFeedback.style.display = 'block';
+        errorFeedback.textContent = `Error ${response.status}: ${response.statusText}`;
+        Hide();
+      }
+      else
+      {
+        const imageURL = URL.createObjectURL(await response.blob());
+        imageElement.src = imageURL;
+        imageElement.onload() = () => Hide();
+      };
+
+      function Hide() {
+          feedback.style.display = 'none'; // Hide the feedback message
+          imageElement.style.display = 'block'; // Show the image
+          promptInput.disabled = false; // Enable the prompt input
+          generateButton.style.display = 'block'; // Show the submit button
+          window.scrollTo(0, document.body.scrollHeight);
+        }
+    });
+  </script>
+  
+  
+  
+
+
+
+</body>
+</html>

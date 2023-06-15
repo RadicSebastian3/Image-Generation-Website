@@ -24,14 +24,11 @@ def generate_image():
 
 @app.route('/generate_random_prompt', methods=['GET'])
 def generate_random_prompt():
-    try:
-        prompt = request.args.get('current_prompt')
-        if prompt == '':
-            return json.dumps(get_start_prompt())
+    prompt = request.args.get('current_prompt')
+    if prompt == '':
+        return json.dumps(get_start_prompt())
 
-        return json.dumps(get_random_prompt(prompt))
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
+    return json.dumps(get_random_prompt(prompt))
 
 if __name__ == '__main__':
     app.run(debug=True)

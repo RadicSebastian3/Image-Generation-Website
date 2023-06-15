@@ -30,11 +30,16 @@ def get_random_prompt(current_prompt):
         output = query({
             "inputs": prompt,
         })
-        return output[0]['generated_text']
+        try:
+            return output[0]['generated_text']
+        except KeyError:
+            raise Exception(output['error'])
 
-    generated_text = current_prompt
+    try:
+        generated_text = generate_text(current_prompt)
+    except Exception as e:
+        return {'full_prompt':current_prompt, 'prompt':current_prompt[len(default_prompt)], 'finished':True, 'error':str(e)}
 
-    generated_text = generate_text(generated_text)
     finished = '.' in generated_text
     generated_text = generated_text.replace('.', '')
 
@@ -44,4 +49,4 @@ def get_random_prompt(current_prompt):
         generated_text += f' and a '
         finished = False
 
-    return {'full_prompt':generated_text, 'prompt':prompt, 'finished':finished}
+    return {'full_prompt':generated_text, 'prompt':prompt, 'finished':finished, 'error':None}

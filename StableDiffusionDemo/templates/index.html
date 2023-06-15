@@ -98,7 +98,12 @@
             errorFeedback.textContent = `Error ${response.status}: ${response.statusText}`;
           } else {
             const data = await response.json()
-            
+            if (data.error != null) {
+              errorFeedback.style.display = 'block';
+              errorFeedback.textContent = `Error: ${data.error}`;
+              break
+            }
+
             promptInput.value = data.prompt;
             currentPrompt = data.full_prompt;
             finished = data.finished;

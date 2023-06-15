@@ -101,3 +101,15 @@ margin: 0 auto;
   color: red;
   padding-top: 10px;
 }
+
+#bottom {
+  text-align: center;
+  margin-top: -15px;
+}
+
+a {
+  color:#007BFF;
+  font-style: normal;
+  text-decoration: none;
+  font-size: small;
+}

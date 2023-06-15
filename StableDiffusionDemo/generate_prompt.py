@@ -5,7 +5,7 @@ API_URL = "https://api-inference.huggingface.co/models/gpt2"
 API_TOKEN = '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'
 headers = {"Authorization": f"Bearer {API_TOKEN}"}
 
-default_prompt = 'Here is an example of a creative and long AI image generation prompt: Generate an image of '
+default_prompt = 'A beautiful drawing of'
 
 def get_start_prompt():
     def get_random_word(file_path):
@@ -41,12 +41,21 @@ def get_random_prompt(current_prompt):
         return {'full_prompt':current_prompt, 'prompt':current_prompt[len(default_prompt)], 'finished':True, 'error':str(e)}
 
     finished = '.' in generated_text
-    generated_text = generated_text.replace('.', '')
 
-    prompt = generated_text[len(default_prompt):]
+    formatted_text = ''
+    if finished:
+        formatted_text = ''
+        for char in generated_text:
+            if char == '.':
+                break
+            formatted_text += char
+    else:
+        formatted_text = generated_text    
+
+    prompt = formatted_text[len(default_prompt):]
 
     if finished and len(prompt.split(' ')) <= 6:
-        generated_text += f' and a '
+        formatted_text += f' and a '
         finished = False
 
-    return {'full_prompt':generated_text, 'prompt':prompt, 'finished':finished, 'error':None}
+    return {'full_prompt':formatted_text, 'prompt':prompt, 'finished':finished, 'error':None}

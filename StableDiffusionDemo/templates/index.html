@@ -89,7 +89,7 @@
         let currentPrompt = '';
         let finished = false;
         let finalPrompt = '';
-        let timeout = 20;
+        let timeout = 15;
         while (!finished && timeout > 0) {
           const response = await fetch(`/generate_random_prompt?current_prompt=${currentPrompt}`, {
             method: 'GET',
@@ -107,6 +107,7 @@
             }
 
             promptInput.value = data.prompt;
+            promptInput.scrollLeft = promptInput.scrollWidth;
             currentPrompt = data.full_prompt;
             finished = data.finished;
 

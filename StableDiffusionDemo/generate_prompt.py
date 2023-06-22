@@ -5,7 +5,7 @@ API_URL = "https://api-inference.huggingface.co/models/gpt2"
 API_TOKEN = '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'
 headers = {"Authorization": f"Bearer {API_TOKEN}"}
 
-default_prompt = 'A beautiful drawing of'
+default_prompt = 'A beautiful painting of'
 
 def get_start_prompt():
     def get_random_word(file_path):

@@ -16,11 +16,13 @@
           <input type="text" id="prompt" name="prompt" required>
           <button type="button" id="randomPromptButton">Random</button>
         </div>
-        <div id="imageContainer">
-          <img id="" src="" alt="" style="display: none;">
-        </div> 
         <button type="submit" id="generateImageButton", href="#end">Generate Image</button>
         <p id="error" style="display: none;">Unknown Error</p>
+        <div id="imageContainer">
+          <a href="" target="_blank" id="imageHref">
+            <img id="" src="" alt="" style="display: none;">
+          </a>
+        </div> 
       </form>
       <section id="end"></section>
     </main>
@@ -31,6 +33,7 @@
       const imageForm = document.getElementById('imageForm');
       const imageContainer = document.getElementById('imageContainer');
       const imageElement = document.querySelector('img');
+      const imageHref = document.getElementById('imageHref');
       const errorFeedback = document.getElementById('error');
       const promptInput = document.getElementById('prompt');
       const generateButton = document.getElementById('generateImageButton');
@@ -66,16 +69,17 @@
         {
           const imageURL = URL.createObjectURL(await response.blob());
           imageElement.src = imageURL;
-          imageElement.onload() = () => Hide();
+          imageHref.href = imageURL;
+          imageElement.onload = () => Hide();
         };
 
         function Hide() {
             imageElement.style.display = 'block'; 
             promptInput.disabled = false; 
             generateButton.disabled = false;
-            generateButton.textContent = "Generate image"
+            generateButton.textContent = "Generate image";
             randomPromptButton.style.display = 'inline';
-            window.scrollTo(0, document.body.scrollHeight);
+            window.scrollTo(0, document.body.scrollHeight/6);
           }
       });
 

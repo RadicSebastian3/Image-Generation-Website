@@ -2,7 +2,7 @@ import requests
 from PIL import Image
 from io import BytesIO
 
-ngrok_url = 'https://533e-2001-871-23c-abd8-ca32-c739-867-7a33.ngrok-free.app'  
+ngrok_url = 'https://49f1-2001-871-23c-590a-92b7-7f20-7268-63f5.ngrok-free.app'  
 
 def get_generated_image(prompt):
     print(f"Generating \"{prompt}\"...")

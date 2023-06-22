@@ -16,11 +16,11 @@
           <input type="text" id="prompt" name="prompt" required>
           <button type="button" id="randomPromptButton">Random</button>
         </div>
-        <button type="submit" id="generateImageButton", href="#end">Generate Image</button>
+        <button type="submit" id="generateImageButton", href="#end">Generate image</button>
         <p id="error" style="display: none;">Unknown Error</p>
         <div id="imageContainer">
           <a href="" target="_blank" id="imageHref">
-            <img id="" src="" alt="" style="display: none;">
+            <img id="generatedImage" src="" alt="" style="display: none;">
           </a>
         </div> 
       </form>
@@ -79,7 +79,7 @@
             generateButton.disabled = false;
             generateButton.textContent = "Generate image";
             randomPromptButton.style.display = 'inline';
-            window.scrollTo(0, document.body.scrollHeight/6);
+            window.scrollTo(0, document.body.scrollHeight / 5);
           }
       });
 
